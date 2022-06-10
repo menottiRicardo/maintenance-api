@@ -1,4 +1,5 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
+import { Prisma } from '@prisma/client';
 import { AppointmentService } from './appointment.service';
 import { CreateAppointmentInput } from './dto/create-appointment.input';
 import { UpdateAppointmentInput } from './dto/update-appointment.input';
@@ -10,7 +11,7 @@ export class AppointmentResolver {
   @Mutation('createAppointment')
   create(
     @Args('createAppointmentInput')
-    createAppointmentInput: CreateAppointmentInput,
+    createAppointmentInput: Prisma.AppointmentCreateInput,
   ) {
     return this.appointmentService.create(createAppointmentInput);
   }

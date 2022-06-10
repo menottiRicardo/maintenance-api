@@ -8,7 +8,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export class CreateAppointmentInput {
-    exampleField?: Nullable<number>;
+    placa: string;
+    date: DateTime;
+    status: string;
 }
 
 export class UpdateAppointmentInput {

@@ -11,7 +11,9 @@ type Appointment {
 
 input CreateAppointmentInput {
   # Example field (placeholder)
-  exampleField: Int
+  placa: String!
+  date: DateTime!
+  status: String!
 }
 
 input UpdateAppointmentInput {
