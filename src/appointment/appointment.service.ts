@@ -1,19 +1,23 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'prisma/prisma.services';
 import { CreateAppointmentInput } from './dto/create-appointment.input';
 import { UpdateAppointmentInput } from './dto/update-appointment.input';
 
 @Injectable()
 export class AppointmentService {
+  constructor(private prisma: PrismaService) {}
   create(createAppointmentInput: CreateAppointmentInput) {
     return 'This action adds a new appointment';
   }
 
-  findAll() {
-    return [
-      {
-        exampleField: 1,
+  findAll(placa: string) {
+    return this.prisma.appointment.findMany({
+      where: {
+        placa: {
+          equals: placa,
+        },
       },
-    ];
+    });
   }
 
   findOne(id: number) {

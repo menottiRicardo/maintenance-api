@@ -4,7 +4,7 @@ async function main() {
   await prisma.appointment.deleteMany();
   const appt = await prisma.appointment.create({
     data: {
-      date: new Date().toDateString(),
+      date: new Date().toISOString(),
       placa: 'au4539',
       status: 'programada',
     },

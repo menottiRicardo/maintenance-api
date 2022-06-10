@@ -16,11 +16,15 @@ export class UpdateAppointmentInput {
 }
 
 export class Appointment {
-    exampleField?: Nullable<number>;
+    id: number;
+    placa: string;
+    date: DateTime;
+    status: string;
+    createdAt?: Nullable<DateTime>;
 }
 
 export abstract class IQuery {
-    abstract appointments(): Nullable<Appointment>[] | Promise<Nullable<Appointment>[]>;
+    abstract appointments(placa?: Nullable<string>): Nullable<Appointment>[] | Promise<Nullable<Appointment>[]>;
 
     abstract appointment(id: number): Nullable<Appointment> | Promise<Nullable<Appointment>>;
 }
@@ -33,4 +37,5 @@ export abstract class IMutation {
     abstract removeAppointment(id: number): Nullable<Appointment> | Promise<Nullable<Appointment>>;
 }
 
+export type DateTime = any;
 type Nullable<T> = T | null;

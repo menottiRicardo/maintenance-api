@@ -19,7 +19,7 @@ input UpdateAppointmentInput {
 }
 
 type Query {
-  appointments: [Appointment]!
+  appointments(placa: String): [Appointment]!
   appointment(id: Int!): Appointment
 }
 

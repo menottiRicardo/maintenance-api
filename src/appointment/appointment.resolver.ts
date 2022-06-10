@@ -16,8 +16,8 @@ export class AppointmentResolver {
   }
 
   @Query('appointments')
-  findAll() {
-    return this.appointmentService.findAll();
+  findAll(@Args('placa') placa: string) {
+    return this.appointmentService.findAll(placa);
   }
 
   @Query('appointment')
